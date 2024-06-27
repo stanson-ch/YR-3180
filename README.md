@@ -100,3 +100,65 @@ Para calibrar el sensor:
 | 1    | AD     | Para obtener el valor de muestreo AD a escala completa se debe colocar un peso en el sensor. Después de esperar 2 segundos presione el botón de configuración para guardar el valor de codificación de escala completa. (Más del 20% del alcance del sensor) |
 | 2    | PH     | Ingrese el valor de peso correspondiente al valor de código de escala completa. Este valor se establecerá en el peso colocado en el sensor. Presione el botón de configuración para guardar. |
 | 3    | -END   | Mostrar END indica que la calibración se completó y volverá automáticamente al estado de funcionamiento. |
+
+
+# Tutorial de Configuración para una Celda de 20 kg en el YR-3180
+
+## Introducción
+Este tutorial explica cómo configurar una celda de carga de 20 kg en el dispositivo de pesaje YR-3180. Asegúrate de seguir cada paso cuidadosamente para una configuración correcta.
+
+## Materiales Necesarios
+- Dispositivo de pesaje YR-3180
+- Celda de carga de 20 kg
+- Fuente de alimentación (USB Tipo-C)
+- Cableado adecuado
+- Software de comunicación MODBUS RTU
+
+## Pasos de Configuración
+
+### 1. Conexión de Hardware
+Conecta la celda de carga y otros componentes al YR-3180 siguiendo las instrucciones de cableado:
+
+- **Alimentación:**
+  - +5V: polo positivo
+  - GND: polo negativo
+
+- **Conexión del sensor:**
+  - E+: Excitación positiva 3.3V
+  - E-: Excitación negativa GND
+  - S+: Entrada de señal positiva
+  - S-: Entrada de señal negativa
+
+### 2. Configuración del Dispositivo
+Sigue estos pasos para configurar los parámetros del dispositivo:
+
+#### Parámetros Generales
+
+| Nº de serie | Símbolo | Área predefinida | Descripción | Valor predefinido en fábrica |
+|-------------|---------|------------------|-------------|-----------------------------|
+| 1           | Lock    | 0-99999          | Presione la tecla SEL para configuración, la ventana de visualización mostrará el mensaje LOCK y luego 1230. Solo después de cambiar a 1231 se pueden ingresar los siguientes parámetros. | 1230 |
+| 2           | dot     | 0.0 0.00 0.000   | El sensor de 20kg se puede configurar con 3 puntos decimales 20.000kg | 0.000 |
+| 3           | LB      | 0-40             | 0-No procesamiento 1 a 40 veces de muestreo promedio de filtrado, cuanto mayor sea el valor de configuración, mejor será el efecto de filtrado pero la velocidad será más lenta. | 5 |
+| 4           | Ad-H    | 01               | Velocidad de recolección: 0 baja velocidad 1 rápida | 0 |
+| 5           | CLr     | 0-999.9          | El tara y rango de tara se borra al encender. Cuando este parámetro es mayor a cero, el medidor se borrará y tarará automáticamente dentro de este rango al encenderse. | 5 |
+| 6           | Fd      | 1 2 5 10 20 50 100 200 | Valores de graduación opcionales: 1 2 5 10 20 50 100 200 | 1 |
+| 7           | ZEro    | 0-9999           | Rango de seguimiento de cero, seguimiento automático del pesaje en el punto cero cercano para mantener la visualización del peso bruto en cero. Nota: La limpieza automática es inválida en modo automático. | 10 |
+| 8           | Zt      | 10.0～600.0       | Tiempo de seguimiento de cero, unidad en segundos, el valor predeterminado de fábrica es 10 segundos. | 60.0 |
+| 9           | FSET    | 0.1000-9.9999    | Coeficiente de corrección valor de visualización = valor de visualización × 1.0000 | 1.0000 |
+
+### 3. Calibración del Sensor
+Para calibrar la celda de carga de 20 kg, sigue estos pasos:
+
+#### Calibración del Punto Cero
+
+1. Mantenga presionada la tecla menos, no coloque peso sobre el sensor, presione la tecla de configuración para cambiar el valor a 0. Presione Set nuevamente para completar la calibración del punto cero.
+
+#### Calibración de Escala Completa
+
+1. Mantenga presionada la tecla más, coloque un peso conocido (por ejemplo, 20 kg) en el sensor, presione la tecla de configuración para cambiar el valor al peso correspondiente y presione Set nuevamente para completar la calibración de escala completa.
+
+### 4. Verificación
+Una vez configurado y calibrado el dispositivo, verifica la precisión del sistema pesando varios objetos de peso conocido y ajusta los parámetros si es necesario.
+
+## Conclusión
+Siguiendo estos pasos, podrás configurar y calibrar correctamente una celda de carga de 20 kg en tu dispositivo YR-3180. Para más detalles y soporte, visita el [repositorio oficial de YR-3180](https://github.com/carlostcba/YR-3180).
