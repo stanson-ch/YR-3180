@@ -161,5 +161,3 @@ Para calibrar la celda de carga de 20 kg, sigue estos pasos:
 ### 4. Verificación
 Una vez configurado y calibrado el dispositivo, verifica la precisión del sistema pesando varios objetos de peso conocido y ajusta los parámetros si es necesario.
 
-## Conclusión
-Siguiendo estos pasos, podrás configurar y calibrar correctamente una celda de carga de 20 kg en tu dispositivo YR-3180. Para más detalles y soporte, visita el [repositorio oficial de YR-3180](https://github.com/carlostcba/YR-3180).
