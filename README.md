@@ -102,7 +102,7 @@ Para calibrar el sensor:
 | 3    | -END   | Mostrar END indica que la calibración se completó y volverá automáticamente al estado de funcionamiento. |
 
 
-# Tutorial de Configuración para una Celda de 20 kg en el YR-3180
+# Configuración para una Celda de 20 kg
 
 ## Introducción
 Este tutorial explica cómo configurar una celda de carga de 20 kg en el dispositivo de pesaje YR-3180. Asegúrate de seguir cada paso cuidadosamente para una configuración correcta.
