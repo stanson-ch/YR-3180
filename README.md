@@ -16,7 +16,13 @@ El módulo de pesaje YR-3180 es un equipo electrónico de pesaje multifuncional 
 
 ## Dimensiones
 
-(Insertar imágenes de las dimensiones aquí)
+![Frente de la placa](img/front.jpg)
+
+![Dorso de la placa](img/back.jpg)
+
+![Medidas de la placa](img/size.jpg)
+
+![Medidas de la placa](img/wiring.jpg)
 
 ## Instrucciones de Cableado
 
