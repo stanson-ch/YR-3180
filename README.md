@@ -5,6 +5,8 @@
 
 El módulo de pesaje YR-3180 es un equipo electrónico de pesaje multifuncional de alto rendimiento. Utiliza tecnología avanzada de sensores de pesaje para medir el peso de los objetos en tiempo real y mostrarlo en un tubo digital de cinco dígitos. Además, cuenta con funciones de alarma de límites superior e inferior. Es capaz de lograr un control y monitoreo de pesaje preciso. Este producto también tiene una interfaz de comunicación TTL y protocolo de comunicación MODBUS RTU, que permite una comunicación rápida y conveniente con computadoras PLC y otros equipos para la transmisión y control remoto de datos de pesaje. Además, soporta alimentación por USB Tipo-C y funciones de depuración con botones, mejorando la conveniencia y estabilidad de uso.
 
+![Vista de la placa](img/pcb.jpg)
+
 ### Características principales
 
 - Sensor de pesaje de alta precisión que permite una detección y visualización precisa del peso.
@@ -16,13 +18,7 @@ El módulo de pesaje YR-3180 es un equipo electrónico de pesaje multifuncional 
 
 ## Dimensiones
 
-![Frente de la placa](img/front.jpg)
-
-![Dorso de la placa](img/back.jpg)
-
 ![Medidas de la placa](img/size.jpg)
-
-![Medidas de la placa](img/wiring.jpg)
 
 ## Instrucciones de Cableado
 
@@ -49,6 +45,7 @@ El módulo de pesaje YR-3180 es un equipo electrónico de pesaje multifuncional 
 - AL2: Alarma de límite inferior
 - Nivel bajo en caso de alarma
 
+![Medidas de la placa](img/wiring.jpg)
 
 ## Parámetros Generales
 
