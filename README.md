@@ -102,6 +102,7 @@ Para calibrar el sensor:
 | 3    | -END   | Mostrar END indica que la calibración se completó y volverá automáticamente al estado de funcionamiento. |
 
 
+
 # Configuración para una Celda de 20 kg
 
 ## Introducción
