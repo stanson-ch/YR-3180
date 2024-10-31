@@ -1,163 +1,162 @@
 
-# Manual del Dispositivo YR-3180
+# YR-3180 Device Manual
 
-## Descripción General
+## General Description
 
-El módulo de pesaje YR-3180 es un equipo electrónico de pesaje multifuncional de alto rendimiento. Utiliza tecnología avanzada de sensores de pesaje para medir el peso de los objetos en tiempo real y mostrarlo en un tubo digital de cinco dígitos. Además, cuenta con funciones de alarma de límites superior e inferior. Es capaz de lograr un control y monitoreo de pesaje preciso. Este producto también tiene una interfaz de comunicación TTL y protocolo de comunicación MODBUS RTU, que permite una comunicación rápida y conveniente con computadoras PLC y otros equipos para la transmisión y control remoto de datos de pesaje. Además, soporta alimentación por USB Tipo-C y funciones de depuración con botones, mejorando la conveniencia y estabilidad de uso.
+YR-3180 weighing module is a high-performance multifunctional electronic weighing equipment. It uses advanced weighing sensor technology to measure the weight of objects in real time and display it on a five-digit digital tube. In addition, it has upper and lower limit alarm functions. It is capable of achieving accurate weighing control and monitoring. This product also has a TTL communication interface and MODBUS RTU communication protocol, which enables fast and convenient communication with PLC computers and other equipment for remote transmission and control of weighing data. In addition, it supports USB Type-C power supply and button debugging functions, improving the convenience and stability of use.
 
-![Vista de la placa](img/pcb.jpg)
+![PCB image](img/pcb.jpg)
 
-### Características principales
+### Main Features
 
-- Sensor de pesaje de alta precisión que permite una detección y visualización precisa del peso.
-- Pantalla de tubo digital de cinco dígitos, intuitiva y clara, adecuada para procesos de pesaje de alta velocidad.
-- Funciones de alarma de límites superior e inferior que facilitan advertencias tempranas y control estricto para mejorar la calidad.
-- Soporte para interfaz de comunicación TTL y protocolo MODBUS RTU para una transmisión y control remoto de datos rápida y conveniente.
-- Alimentación por USB Tipo-C/5V y función de depuración con botones, fácil de usar y con gran estabilidad.
-- Ligero y portátil, fácil de instalar y mover, ahorrando espacio y costos.
+- High precision weighing sensor that allows accurate weight detection and display.
+- Five-digit digital tube display, intuitive and clear, suitable for high-speed weighing processes.
+- Upper and lower limit alarm functions facilitate early warnings and strict control to improve quality.
+- Support TTL communication interface and MODBUS RTU protocol for fast and convenient data transmission and remote control.
+- USB Type-C/5V powered and button debugging function, easy to use and with high stability.
+- Lightweight and portable, easy to install and move, saving space and cost.
 
-## Dimensiones
+## Dimensions
 
-![Medidas de la placa](img/size.jpg)
+![PCB Dimensions](img/size.jpg)
 
-## Instrucciones de Cableado
+## Wiring
 
-**Alimentación:**
-- +5V: polo positivo
-- GND: polo negativo
+**Power:**
+- +5V: Input
+- GND: Ground
 
-**Conexión de la interfaz del sensor:**
-- E+: Excitación positiva 3.3V
-- E-: Excitación negativa GND
-- S+: Entrada de señal positiva
-- S-: Entrada de señal negativa
+**Sensor connections:**
+- E+: Positive excitation 3.3V
+- E-: Negative excitation GND
+- S+: Positive signal
+- S-: Negative signal
 
-**Interfaz de alimentación USB Tipo-C**
+**USB Type-C power interface**
 
-**Interfaz de comunicación TTL y protocolo MODBUS RTU:**
-- 5V: polo positivo de salida de alimentación
-- RX: Recepción de datos (recibe TXD de la otra parte)
-- TX: Transmisión de datos (recibe RXD de la otra parte)
-- GND: polo negativo de salida de alimentación
+**TTL communication interface and MODBUS RTU protocol:**
+- 5V: 5V power output
+- RX: Receiving data (connect to TXD from the other party)
+- TX: Transmitted data (connect to RXD from the other party)
+- GND: Ground
 
-**Interfaz de alarma:**
-- AL1: Alarma de límite superior
-- AL2: Alarma de límite inferior
-- Nivel bajo en caso de alarma
+**Alarm interface:**
+- AL1: Upper limit alarm
+- AL2: Lower limit alarm
+- GND: Ground
 
-![Medidas de la placa](img/wiring.jpg)
+![PCB wiring](img/wiring.jpg)
 
-## Parámetros Generales
+## General Parameters
 
-| Nº de serie | Símbolo | Área predefinida | Descripción | Valor predefinido en fábrica |
+| Nº | Symbol | Limits | Description | Default value |
 |-------------|---------|------------------|-------------|-----------------------------|
-| 1           | Lock    | 0-99999          | Presione la tecla SEL para configuración, la ventana de visualización mostrará el mensaje LOCK y luego 1230. Solo después de cambiar a 1231 se pueden ingresar los siguientes parámetros. | 1230 |
-| 2           | dot     | 0.0 0.00 0.000   | El sensor de 20kg se puede configurar con 3 puntos decimales 20.000kg El sensor de 200kg se puede configurar con 2 puntos decimales 200.00kg El sensor de 2000kg se puede configurar con 1 punto decimal 2000.0kg | 0.0 |
-| 3           | LB      | 0-40             | 0-No procesamiento 1 a 40 veces de muestreo promedio de filtrado, cuanto mayor sea el valor de configuración, mejor será el efecto de filtrado pero la velocidad será más lenta. | 5 |
-| 4           | Ad-H    | 01               | Velocidad de recolección: 0 baja velocidad 1 rápida | 0 |
-| 5           | CLr     | 0-999.9          | El tara y rango de tara se borra al encender. Cuando este parámetro es mayor a cero, el medidor se borrará y tarará automáticamente dentro de este rango al encenderse. | 5 |
-| 6           | Fd      | 1 2 5 10 20 50 100 200 | Valores de graduación opcionales: 1 2 5 10 20 50 100 200 | 1 |
-| 7           | ZEro    | 0-9999           | Rango de seguimiento de cero, seguimiento automático del pesaje en el punto cero cercano para mantener la visualización del peso bruto en cero. Nota: La limpieza automática es inválida en modo automático. | 10 |
-| 8           | Zt      | 10.0～600.0       | Tiempo de seguimiento de cero, unidad en segundos, el valor predeterminado de fábrica es 10 segundos. Por ejemplo: después de que el valor de peso se estabilice, no habrá cambio en el valor. Después de 10 segundos se borrará automáticamente. Después de que el valor cambie, reinicie el temporizador. | 60.0 |
-| 9           | FSET    | 0.1000-9.9999    | Coeficiente de corrección valor de visualización = valor de visualización × 1.0000 | 1.0000 |
+| 1           | Lock    | 0-99999          | Press the SEL key for setting, the display window will show LOCK and then 1230. Only after switching to 1231 can the following parameters be entered. | 1230 |
+| 2           | dot     | 0.0 0.00 0.000   | The 20kg sensor can be set with 3 decimal points 20.000kg The 200kg sensor can be set with 2 decimal points 200.00kg The 2000kg sensor can be set with 1 decimal point 2000.0kg | 0.0 |
+| 3           | LB      | 0-40             | 0-No processing 1 to 40 times of average filtering sampling, the larger the setting value, the better the filtering effect but the speed will be slower. | 5 |
+| 4           | Ad-H    | 01               | Harvesting speed: 0 low speed 1 fast | 0 |
+| 5           | CLr     | 0-999.9          | The tare and tare range are cleared at power on. When this parameter is greater than zero, the meter will automatically clear and tare within this range at power on. | 5 |
+| 6           | Fd      | 1 2 5 10 20 50 100 200 | Optional graduation values: 1 2 5 10 20 50 100 200 | 1 |
+| 7           | ZEro    | 0-9999           | Zero tracking range, automatic tracking of weighing at near zero point to keep gross weight display at zero. Note: Automatic clearing is invalid in automatic mode. | 10 |
+| 8           | Zt      | 10.0-600.0       | Zero tracking time, unit in seconds, the factory default is 10 seconds. For example: after the weight value is stabilized, there will be no change in the value. After 10 seconds it will be automatically cleared. After the value changes, restart the timer. | 60.0 |
+| 9           | FSET    | 0.1000-9.9999    | Correction coefficient display value = display value × 1.0000 | 1.0000 |
 
-## Parámetros de Alarma
+## Alarm Parameters
 
-| Nº de serie | Símbolo | Área predefinida | Descripción | Valor predefinido en fábrica |
+| Nº | Symbol | Limits | Description | Default value |
 |-------------|---------|------------------|-------------|-----------------------------|
-| 01          | LoCK    | 0-9999           | Presione la tecla SEL para configuración, la ventana de visualización mostrará el mensaje LOCK y luego 1230. Solo después de cambiar a 1232 se pueden ingresar los siguientes parámetros. | 1230 |
-|             | AL      | PVL PVH PVHL OFF | PVL: Ambas AL1 y AL2 son alarmas de límite inferior. Si el valor medido es menor que el límite inferior, el relé se cerrará. PVH: Ambas AL1 y AL2 son alarmas de límite superior. Si el valor medido es superior al límite superior, el relé se cerrará. PVHL: AL1 es la alarma de límite superior, AL2 es la alarma de límite inferior OFF: Apagar la función de alarma | PVHL |
-| 1           | AL1     | -1999.9-9999.9   | Valor de configuración de alarma de límite superior AL1. Cuando el valor medido exceda (50.0) el relé operará. Cuando el valor medido sea menor que 45.0 AL1 se desconectará. | 50.0 |
-| 2           | AH1     | -1999.9-9999.9   | Valor de retorno de alarma de límite superior. | 5.0 |
-| 3           | AL2     | -1999.9-9999.9   | Valor de configuración de alarma de límite superior AL2. Cuando el valor medido exceda (150.0) el relé operará. Cuando el valor medido sea menor que 145.0 AL1 se desconectará. | 150.0 |
-| 4           | AH2     | -1999.9-9999.9   | Valor de retorno de alarma de límite superior. | 5.0 |
+| 01          | LoCK    | 0-9999           | Press the SEL key for setting, the display window will show LOCK and then 1230. Only after switching to 1232 can the following parameters be entered. | 1230 |
+|             | AL      | PVL PVH PVHL OFF | PVL: Both AL1 and AL2 are lower limit alarms. If the measured value is lower than the lower limit, the relay will close. PVH: Both AL1 and AL2 are upper limit alarms. If the measured value is higher than the upper limit, the relay will close. PVHL: AL1 is the upper limit alarm, AL2 is the lower limit alarm OFF: Turn off the alarm function | PVHL |
+| 1           | AL1     | -1999.9-9999.9   | Upper limit alarm setting value AL1. When the measured value exceeds (50.0) the relay will operate. When the measured value is less than 45.0 AL1 will be disconnected. | 50.0 |
+| 2           | AH1     | -1999.9-9999.9   | Upper limit alarm return value. | 5.0 |
+| 3           | AL2     | -1999.9-9999.9   | Upper limit alarm setting value AL2. When the measured value exceeds (150.0) the relay will operate. When the measured value is less than 145.0 AL1 will disconnect. | 150.0 |
+| 4           | AH2     | -1999.9-9999.9   | Upper limit alarm return value. | 5.0 |
 
-## Parámetros de Comunicación
+## Communication Parameters
 
-| Nº de serie | Símbolo | Área predefinida | Descripción | Valor predefinido en fábrica |
+| Nº | Symbol | Limits | Description | Default value |
 |-------------|---------|------------------|-------------|-----------------------------|
-| 01          | LoCK    | 0-9999           | Presione la tecla SEL para configuración, la ventana de visualización mostrará el mensaje LOCK y luego 1230. Solo después de cambiar a 1233 se pueden ingresar los siguientes parámetros. | 1230 |
-| 02          | Addr    | 001-255          | Número de estación de comunicación Modbus | 001 |
-| 03          | Baud    | 1200-115200kbps  | Velocidad de transmisión de datos del puerto de comunicación | 9600 |
-| 04          | Pari    | None             | None: Sin dígito de verificación Odd: bit de paridad impar Even: bit de paridad par | 8N1 |
-| 05          | Foalot  | 1234 2134 3412 4321 | Secuencia de datos: 12345678 42CAFB10; Secuencia de datos: 34127856 CA4201FB; Secuencia de datos: 56781234 FB1042CA; Secuencia de datos: 78563421 10FBCA42. | 123 |
+| 01          | LoCK    | 0-9999           | Press the SEL key for setting, the display window will show LOCK and then 1230. Only after switching to 1233 can the following parameters be entered. | 1230 |
+| 02          | Addr    | 001-255          | Modbus address | 001 |
+| 03          | Baud    | 1200-115200kbps  | Baudrate | 9600 |
+| 04          | Pari    | None             | None: No parity Odd: Odd parity Even: Even parity | 8N1 |
+| 05          | Foalot  | 1234 2134 3412 4321 | Data sequence: 12345678 42CAFB10; Data sequence: 34127856 CA4201FB; Data sequence: 56781234 FB1042CA; Data sequence: 78563421 10FBCA42. | 123 |
 
-## Calibración del Sensor
+## Sensor Calibration
 
-Para calibrar el sensor:
-1. Mantenga presionada la tecla menos, no coloque peso sobre el sensor, presione la tecla de configuración para cambiar el valor a 0. Presione Set nuevamente para completar la calibración del punto cero.
-2. Para calibrar la escala completa, mantenga presionada la tecla más, coloque el peso en el sensor, presione la tecla de configuración para cambiar el valor al peso correspondiente y presione Set nuevamente para completar la calibración de escala completa.
+Sensor calibration:
+1. Press and hold the minus key, do not place weight on the sensor, press the set key to change the value to 0. Press Set again to complete the zero point calibration.
+2. To calibrate the full scale, hold down the plus key, place the weight on the sensor, press the set key to change the value to the corresponding weight, and press Set again to complete the full scale calibration.
 
 
-| Paso | Acción | Descripción |
+| Step | Action | Description |
 |------|--------|-------------|
-| 1    | AD     | Mantenga presionada la tecla menos, no coloque peso sobre el sensor, presione la tecla de configuración para cambiar el valor a 0. Presione Set nuevamente para completar la calibración del punto cero. |
-| 2    | PL     | Introduzca el valor de peso correspondiente al valor del código de punto cero. No había peso en el sensor en este momento por lo que el valor está establecido en. . |
-| 3    | -END   | Mostrar END indica que la calibración se completó y volverá automáticamente al estado de funcionamiento. |
+| 1    | AD     | Press and hold the minus key, do not place weight on the sensor, press the set key to change the value to 0. Press Set again to complete the zero point calibration. |
+| 2    | PL     | Enter the weight value corresponding to the zero point code value. There was no weight on the sensor at this time so the value is set to. |
+| 3    | -END-   | Displaying END indicates that the calibration is complete and will automatically return to the working state. |
 
-| Paso | Acción | Descripción |
+| Step | Action | Description |
 |------|--------|-------------|
-| 1    | AD     | Para obtener el valor de muestreo AD a escala completa se debe colocar un peso en el sensor. Después de esperar 2 segundos presione el botón de configuración para guardar el valor de codificación de escala completa. (Más del 20% del alcance del sensor) |
-| 2    | PH     | Ingrese el valor de peso correspondiente al valor de código de escala completa. Este valor se establecerá en el peso colocado en el sensor. Presione el botón de configuración para guardar. |
-| 3    | -END   | Mostrar END indica que la calibración se completó y volverá automáticamente al estado de funcionamiento. |
+| 1    | AD     | To obtain the full scale AD sampling value a weight must be placed on the sensor. After waiting 2 seconds press the setup button to save the full scale encoding value. (More than 20% of the sensor range) |
+| 2    | PH     | Enter the weight value corresponding to the full scale code value. This value will be set to the weight placed on the sensor. Press the setting button to save. |
+| 3    | -END-   | Displaying END indicates that the calibration is complete and will automatically return to the working state. |
 
 
 
-# Configuración para una Celda de 20 kg
+# Configuration for a 20 kg cell
 
-## Introducción
-Este tutorial explica cómo configurar una celda de carga de 20 kg en el dispositivo de pesaje YR-3180. Asegúrate de seguir cada paso cuidadosamente para una configuración correcta.
+## Introducion
+This tutorial explains how to set up a 20kg load cell on the YR-3180 weighing device. Make sure to follow each step carefully for proper setup.
 
-## Materiales Necesarios
-- Dispositivo de pesaje YR-3180
-- Celda de carga de 20 kg
-- Fuente de alimentación (USB Tipo-C)
-- Cableado adecuado
-- Software de comunicación MODBUS RTU
+## Necessary Materials
+- YR-3180 device
+- 20kg load cell
+- Power supply (USB Type-C)
+- Proper wiring
+- MODBUS RTU communication software
 
-## Pasos de Configuración
+## Configuration Steps
 
-### 1. Conexión de Hardware
-Conecta la celda de carga y otros componentes al YR-3180 siguiendo las instrucciones de cableado:
+### 1. Hardware Connection
+Connect the load cell and other components to the YR-3180 following the wiring instructions.:
 
-- **Alimentación:**
-  - +5V: polo positivo
-  - GND: polo negativo
+- **Power:**
+  - Connect power supply to USB Type-C connector
 
-- **Conexión del sensor:**
-  - E+: Excitación positiva 3.3V
-  - E-: Excitación negativa GND
-  - S+: Entrada de señal positiva
-  - S-: Entrada de señal negativa
+- **Sensor connections:**
+  - E+: Positive excitation
+  - E-: Negative excitation
+  - S+: Positive signal
+  - S-: Negative signal
 
-### 2. Configuración del Dispositivo
-Sigue estos pasos para configurar los parámetros del dispositivo:
+### 2. Device Configuration
+Follow these steps to configure the device parameters:
 
-#### Parámetros Generales
+#### General Parameters
 
-| Nº de serie | Símbolo | Área predefinida | Descripción | Valor predefinido en fábrica |
+| Nº | Symbol | Limits | Description | Default value |
 |-------------|---------|------------------|-------------|-----------------------------|
-| 1           | Lock    | 0-99999          | Presione la tecla SEL para configuración, la ventana de visualización mostrará el mensaje LOCK y luego 1230. Solo después de cambiar a 1231 se pueden ingresar los siguientes parámetros. | 1230 |
-| 2           | dot     | 0.0 0.00 0.000   | El sensor de 20kg se puede configurar con 3 puntos decimales 20.000kg | 0.000 |
-| 3           | LB      | 0-40             | 0-No procesamiento 1 a 40 veces de muestreo promedio de filtrado, cuanto mayor sea el valor de configuración, mejor será el efecto de filtrado pero la velocidad será más lenta. | 5 |
-| 4           | Ad-H    | 01               | Velocidad de recolección: 0 baja velocidad 1 rápida | 0 |
-| 5           | CLr     | 0-999.9          | El tara y rango de tara se borra al encender. Cuando este parámetro es mayor a cero, el medidor se borrará y tarará automáticamente dentro de este rango al encenderse. | 5 |
-| 6           | Fd      | 1 2 5 10 20 50 100 200 | Valores de graduación opcionales: 1 2 5 10 20 50 100 200 | 1 |
-| 7           | ZEro    | 0-9999           | Rango de seguimiento de cero, seguimiento automático del pesaje en el punto cero cercano para mantener la visualización del peso bruto en cero. Nota: La limpieza automática es inválida en modo automático. | 10 |
-| 8           | Zt      | 10.0～600.0       | Tiempo de seguimiento de cero, unidad en segundos, el valor predeterminado de fábrica es 10 segundos. | 60.0 |
-| 9           | FSET    | 0.1000-9.9999    | Coeficiente de corrección valor de visualización = valor de visualización × 1.0000 | 1.0000 |
+| 1           | Lock    | 0-99999          | Press the SEL key for setting, the display window will show LOCK and then 1230. Only after switching to 1231 can the following parameters be entered. | 1230 |
+| 2           | dot     | 0.0 0.00 0.000   | The 20kg sensor can be set with 3 decimal points 20,000kg | 0.000 |
+| 3           | LB      | 0-40             | 0-No processing 1 to 40 times of average filtering sampling, the larger the setting value, the better the filtering effect but the speed will be slower. | 5 |
+| 4           | Ad-H    | 01               | Harvesting speed: 0 low speed 1 fast | 0 |
+| 5           | CLr     | 0-999.9          | The tare and tare range are cleared at power on. When this parameter is greater than zero, the meter will automatically clear and tare within this range at power on. | 5 |
+| 6           | Fd      | 1 2 5 10 20 50 100 200 | Optional graduation values: 1 2 5 10 20 50 100 200 | 1 |
+| 7           | ZEro    | 0-9999           | Zero tracking range, automatic tracking of weighing at near zero point to keep gross weight display at zero. Note: Automatic clearing is invalid in automatic mode. | 10 |
+| 8           | Zt      | 10.0-600.0       | Zero tracking time, unit in seconds, factory default is 10 seconds. | 60.0 |
+| 9           | FSET    | 0.1000-9.9999    | Correction coefficient display value = display value × 1.0000 | 1.0000 |
 
-### 3. Calibración del Sensor
-Para calibrar la celda de carga de 20 kg, sigue estos pasos:
+### 3. Sensor Calibration
+To calibrate the 20kg load cell, follow these steps:
 
-#### Calibración del Punto Cero
+#### Zero Point Calibration
 
-1. Mantenga presionada la tecla menos, no coloque peso sobre el sensor, presione la tecla de configuración para cambiar el valor a 0. Presione Set nuevamente para completar la calibración del punto cero.
+1. Press and hold the minus key, do not place weight on the sensor, press the set key to change the value to 0. Press Set again to complete the zero point calibration.
 
-#### Calibración de Escala Completa
+#### Full Scale Calibration
 
-1. Mantenga presionada la tecla más, coloque un peso conocido (por ejemplo, 20 kg) en el sensor, presione la tecla de configuración para cambiar el valor al peso correspondiente y presione Set nuevamente para completar la calibración de escala completa.
+1. Press and hold the plus key, place a known weight (e.g. 20kg) on ​​the sensor, press the set key to change the value to the corresponding weight, and press Set again to complete the full scale calibration.
 
-### 4. Verificación
-Una vez configurado y calibrado el dispositivo, verifica la precisión del sistema pesando varios objetos de peso conocido y ajusta los parámetros si es necesario.
+### 4. Verification
+Once the device is set up and calibrated, verify the accuracy of the system by weighing several objects of known weight and adjust the parameters if necessary.
 
